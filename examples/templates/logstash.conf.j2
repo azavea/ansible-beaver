@@ -1,0 +1,11 @@
+input {
+  redis {
+    key => "logstash"
+    host => "{{ redis_host }}"
+    data_type => "list"
+  }
+}
+
+output {
+  stdout { codec => rubydebug }
+}

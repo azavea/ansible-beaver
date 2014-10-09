@@ -1,0 +1,12 @@
+---
+beaver_version: "31"
+beaver_conf_dir: /etc/beaver
+beaver_data_dir: /var/lib/beaver
+
+beaver_redis_url: "redis://localhost:6379/0"
+beaver_redis_namespace: "logstash"
+beaver_logstash_version: 1
+
+beaver_log: /var/log/beaver.log
+beaver_log_rotate_count: 5
+beaver_log_rotate_interval: daily

@@ -1,0 +1,10 @@
+description "Beaver log shipper"
+
+start on (local-filesystems and net-device-up IFACE!=lo)
+stop on shutdown
+
+respawn
+setuid beaver
+chdir {{ beaver_data_dir }}
+
+exec /usr/local/bin/beaver -t redis -c {{ beaver_conf_dir }}/conf >> {{ beaver_log }} 2>&1
