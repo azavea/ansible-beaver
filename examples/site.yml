@@ -1,0 +1,30 @@
+---
+- hosts: all
+
+  vars:
+    redis_host: 127.0.0.1
+    redis_port: 6379
+    beaver_redis_url: "redis://{{ redis_host }}:{{ redis_port }}/0"
+
+  roles:
+    - { role: "azavea.redis" }
+    - { role: "azavea.logstash" }
+    - { role: "azavea.beaver" }
+
+  tasks:
+    - name: Configure Logstash
+      template: src=templates/logstash.conf.j2 dest=/etc/logstash/conf.d/logstash.conf
+      notify:
+        - Restart Logstash
+
+    - name: Add Beaver user to service group
+      user: name=beaver
+            append=yes
+            groups=adm
+            state=present
+
+    - name: Configure Beaver stanza for syslog
+      copy: src=templates/syslog.j2
+            dest={{ beaver_conf_dir }}/conf.d/syslog
+      notify:
+        - Restart Beaver

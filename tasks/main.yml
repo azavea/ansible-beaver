@@ -1,0 +1,33 @@
+---
+- name: Create service account for Beaver
+  user: name=beaver
+        system=yes
+        home={{ beaver_data_dir }}
+        shell=/bin/false
+        state=present
+
+- name: Install Beaver
+  pip: name=beaver version={{ beaver_version }} state=present
+
+- name: Create Beaver configuration directory
+  file: path={{ beaver_conf_dir }}/conf.d recurse=yes state=directory
+
+- name: Configure Beaver
+  template: src=beaver.j2 dest={{ beaver_conf_dir }}/conf
+  notify:
+    - Restart Beaver
+
+- name: Configure Beaver service definition
+  template: src=beaver.conf.j2 dest=/etc/init/beaver.conf
+  notify:
+    - Restart Beaver
+
+- name: Touch log file if it does not exist
+  command: touch {{ beaver_log }}
+           creates={{ beaver_log }}
+
+- name: Set log file permissions
+  file: path={{ beaver_log }} owner=beaver group=beaver mode=0644
+
+- name: Configure Beaver log rotation
+  template: src=logrotate_beaver.j2 dest=/etc/logrotate.d/beaver

@@ -1,0 +1,7 @@
+{{ beaver_log }} {
+  rotate {{ beaver_log_rotate_count }}
+  {{ beaver_log_rotate_interval }}
+  compress
+  missingok
+  notifempty
+}
