@@ -6,6 +6,9 @@
         shell=/bin/false
         state=present
 
+- name: Install Python Docutils
+  pip: name=docutils version={{ beaver_docutils_version }} state=present
+
 - name: Install Beaver
   pip: name=beaver version={{ beaver_version }} state=present
 
