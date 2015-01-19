@@ -7,7 +7,9 @@ beaver_redis_url: "redis://localhost:6379/0"
 beaver_redis_namespace: "logstash"
 beaver_logstash_version: 1
 
-beaver_docutils_version: "0.12"
+beaver_dependencies:
+  - { name: "docutils", version: "0.12" }
+  - { name: "python-daemon", version: "2.0.2" }
 
 beaver_log: /var/log/beaver.log
 beaver_log_rotate_count: 5
