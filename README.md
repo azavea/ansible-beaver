@@ -10,7 +10,7 @@ An Ansible role for installing [Beaver](https://github.com/josegonzalez/python-b
 - `beaver_redis_url` - A Redis URL for Beaver to publish messages (default: `redis://localhost:6379/0`)
 - `beaver_redis_namespace` - A namespace within Redis for Beaver to publish messages (default: `logstash`)
 - `beaver_logstash_version` - Logstash 1.2 introduced a JSON schema change, so if you're using > 1.0, this needs to be set to `1` (default: `1`)
-- `beaver_docutils_version` - Version of `docutils` dependency for Beaver (default: `0.12`)
+- `beaver_dependencies` - A list of Beaver dependencies that do not install correctly on their own (default: `[ docutils, python-daemon ]`)
 - `beaver_log` - Beaver log path (default: `/var/log/beaver.log`)
 - `beaver_log_rotate_count` - Beaver log rotation count (default: `5`)
 - `beaver_log_rotate_interval` - Beaver log rotation interval (default: `daily`)
