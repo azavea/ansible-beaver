@@ -1,5 +1,5 @@
 ---
-beaver_version: "33.0.0"
+beaver_version: "33.3.0"
 beaver_conf_dir: /etc/beaver
 beaver_data_dir: /var/lib/beaver
 
