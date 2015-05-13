@@ -3,5 +3,8 @@
   {{ beaver_log_rotate_interval }}
   compress
   missingok
+  postrotate
+    restart beaver
+  endscript
   notifempty
 }
