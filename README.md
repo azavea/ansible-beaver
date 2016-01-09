@@ -1,5 +1,7 @@
 # ansible-beaver
 
+[![Join the chat at https://gitter.im/azavea/ansible-beaver](https://badges.gitter.im/azavea/ansible-beaver.svg)](https://gitter.im/azavea/ansible-beaver?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 An Ansible role for installing [Beaver](https://github.com/josegonzalez/python-beaver).
 
 ## Role Variables
