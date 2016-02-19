@@ -1,0 +1,6 @@
+- src: azavea.redis
+  version: 0.1.0
+- src: azavea.logstash
+  version: 0.1.0
+- src: azavea.pip
+  version: 0.1.0
