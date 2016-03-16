@@ -30,8 +30,7 @@
     - Restart Beaver
 
 - name: Touch log file if it does not exist
-  command: touch {{ beaver_log }}
-           creates={{ beaver_log }}
+  copy: content="" dest="{{ beaver_log }}" force=no
 
 - name: Set log file permissions
   file: path={{ beaver_log }} owner=beaver group=beaver mode=0644
