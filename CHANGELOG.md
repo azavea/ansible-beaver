@@ -1,3 +1,8 @@
+## 1.0.0
+
+- Resolve broken Mosquito dependency that affects all versions prior to
+  `36.2.0`.
+
 ## 0.2.0
 
 - Add backward compatible support with Ansible 2.0.
