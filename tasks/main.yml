@@ -6,13 +6,6 @@
         shell=/bin/false
         state=present
 
-- name: Install Beaver dependencies
-  pip: name={{ item.name }}
-       version={{ item.version }}
-       state=present
-  with_items: beaver_dependencies
-  when: beaver_version | version_compare('33.0.0', '<=')
-
 - name: Install Beaver
   pip: name=beaver version={{ beaver_version }} state=present
 
