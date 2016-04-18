@@ -1,3 +1,7 @@
+## 1.0.1
+
+- Remove explicit Beaver dependency install.
+
 ## 1.0.0
 
 - Resolve broken Mosquito dependency that affects all versions prior to
